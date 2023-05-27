@@ -6,7 +6,9 @@ new Swiper('.main-slider', {
     pagination: {
         el: '.swiper-pagination',
         clickable: true,
-    }
+    },
+    autoplay: true,
+    loop: true
 });
 
 AOS.init();
@@ -95,3 +97,29 @@ const ClosePopupLogin = function(e) {
     popupLoginCloseButton.removeEventListener('click', ClosePopupLogin);
     document.removeEventListener('keydown', CloseByKeyPopupLogin);
 }
+
+const menuItems = document.querySelectorAll('.main-menu-item');
+const tabs = document.querySelectorAll('.main-menu-tab');
+
+const switchTab = (e) => {
+    e.preventDefault();
+    
+    menuItems.forEach(item => {
+        item.classList.remove('menu-tab-active');
+    });
+    
+    const menuItem = e.target.closest('.main-menu-item');
+    menuItem.classList.add('menu-tab-active');
+    
+    tabs.forEach(tab => {
+        tab.classList.remove('menu-data-active');
+    });
+    
+    const selectedIndex = Array.from(menuItems).indexOf(menuItem);
+    
+    tabs[selectedIndex].classList.add('menu-data-active');
+};
+
+menuItems.forEach(item => {
+    item.addEventListener('click', switchTab);
+});

@@ -358,6 +358,18 @@ header {
     width: 653px;
 }
 
+.main-menu-tab {
+    display: none;
+}
+
+.menu-tab-active {
+    display: flex;
+}
+
+.menu-data-active {
+    display: block;
+}
+
 .main-menu-header {
     font-family: 'Open Sans';
     font-weight: 400;
