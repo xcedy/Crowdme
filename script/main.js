@@ -88,29 +88,3 @@ inputEmail.addEventListener("input", function(e) {
     }
 });
 
-inputUsername.addEventListener("input", function(e) {
-    if (inputUsername.validity.typeMismatch) {
-        inputUsername.setCustomValidity("Username is incorrect!");
-    } else {
-        inputUsername.setCustomValidity("");
-    }
-});
-
-function emailShowValidateError() {
-    if(inputEmail.value === '') {
-        emailValidateLog.textContent = 'Email is empty!';
-    } else if(inputEmail.validity.typeMismatch) {
-        emailValidateLog.textContent = 'Entered not an Email!';
-    } else if(inputEmail.validity.tooShort) {
-        emailValidateLog.textContent = `Email should be at least ${ inputEmail.minLength } characters; you entered ${ inputEmail.value.length }.`;
-    }
-}
-
-popupBecomeAMembers.addEventListener('submit', function(e) {
-    alert('submit!');
-    if(!inputEmail.validity.valid) {
-        alert('Asdgfdhfd');
-        emailShowValidateError();
-        e.preventDefault();
-    }
-});
