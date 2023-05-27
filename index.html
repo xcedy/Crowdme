@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link type="image/x-icon" href="favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="style/style.css">
     <title>Crowdme</title>
@@ -44,7 +46,7 @@
             </nav>
         </div>
         <div class="header-login-wrapper">
-            <a href="#" class="header-login popup-login-open">LOGIN</a>
+            <a href="popup-login.html" class="header-login popup-login-open">LOGIN</a>
         </div>
     </header>
     <main>
@@ -94,7 +96,7 @@
                 </div>
             </section>
             <section class="main-menu">
-                <div class="main-menu-wrapper">
+                <div class="main-menu-wrapper" data-aos="fade-up">
                     <div class="menu-listwrapper">
                         <ul class="main-menu-list">
                             <li class="main-menu-item">
@@ -135,7 +137,7 @@
                                 Sign up to browse the portfolio. Your journey to becoming a real estate baron starts here.
                             </p>
                             <div class="findmenu-button-container">
-                                <a href="#" class="findmenu-button popup-Become-A-Member-open">Become A Member</a>
+                                <a href="popup-become-a-member.html" class="findmenu-button popup-Become-A-Member-open">Become A Member</a>
                             </div>
                         </div>
                     </div>
@@ -147,7 +149,7 @@
                                 Sign up to browse the portfolio. Your journey to becoming a real estate baron starts here.
                             </p>
                             <div class="findmenu-button-container">
-                                <a href="#" class="findmenu-button submit-button popup-login-open">Submit Your Project</a>
+                                <a href="popup-login.html" class="findmenu-button submit-button popup-login-open">Submit Your Project</a>
                             </div>
                         </div>
                     </div>
@@ -163,7 +165,7 @@
                             </p>
                         </div>
                         <div class="featured-button-wrapper">
-                            <a href="#" class="featured-button popup-Become-A-Member-open">Become a Member</a>
+                            <a href="popup-become-a-member.html" class="featured-button popup-Become-A-Member-open">Become a Member</a>
                         </div>
                     </div>
                     <div class="featured-cards-container">
@@ -383,6 +385,10 @@
             </section>
         </form>
     </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="script/main.js"></script>
 </body>

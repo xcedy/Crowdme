@@ -1,14 +1,47 @@
+new Swiper('.main-slider', {
+    navigation: {
+        nextEl: '.slide-next',
+        prevEl: '.slide-prev'
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    }
+});
+
+AOS.init();
+
+AOS.init({
+    disable: false,
+    startEvent: 'DOMContentLoaded',
+    initClassName: 'aos-init',
+    animatedClassName: 'aos-animate',
+    useClassNames: false,
+    disableMutationObserver: false,
+    debounceDelay: 50,
+    throttleDelay: 99,
+    
+    offset: 120,
+    delay: 0,
+    duration: 400,
+    easing: 'ease',
+    once: false,
+    mirror: false,
+    anchorPlacement: 'top-bottom',
+});
+
 const popupBecomeAMembersOpenButtons = document.querySelectorAll('.popup-Become-A-Member-open');
 const popupBecomeAMembers = document.querySelector('.header-member-popup');
 const popupBecomeAMembersCloseButton = popupBecomeAMembers.querySelector('.member-popup-close-button');
 
 
 document.addEventListener('click', outModalClick);
+
 for (let i = 0; i < popupBecomeAMembersOpenButtons.length; i++) {
         popupBecomeAMembersOpenButtons[i].addEventListener('click', function(e) {
         e.preventDefault();
         popupBecomeAMembers.classList.add('popup-enabled');
-
+        
         document.addEventListener('keydown', CloseByKeyPopupBecomeAMember);
         popupBecomeAMembersCloseButton.addEventListener('click', ClosePopupBecomeAMember);
     });
@@ -49,17 +82,6 @@ function outModalClick(e) {
         ClosePopupLogin();
     }
 }
-    
-new Swiper('.main-slider', {
-    navigation: {
-        nextEl: '.slide-next',
-        prevEl: '.slide-prev'
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    }
-});
 
 const CloseByKeyPopupLogin = function(e) {
     if (e.key === 'Escape') {
