@@ -1,0 +1,13 @@
+<svg id="Logo" xmlns="http://www.w3.org/2000/svg" width="33" height="36" viewBox="0 0 33 36">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #8fc63d;
+      }
+    </style>
+  </defs>
+  <rect id="Rounded_Rectangle_13" data-name="Rounded Rectangle 13" class="cls-1" y="16" width="7" height="20" rx="3.5" ry="3.5"/>
+  <rect id="Rounded_Rectangle_13_copy" data-name="Rounded Rectangle 13 copy" class="cls-1" x="13" width="7" height="36" rx="3.5" ry="3.5"/>
+  <circle class="cls-1" cx="3.5" cy="10.5" r="3.5"/>
+  <rect id="Rounded_Rectangle_13_copy_2" data-name="Rounded Rectangle 13 copy 2" class="cls-1" x="26" y="7" width="7" height="29" rx="3.5" ry="3.5"/>
+</svg>
