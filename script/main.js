@@ -73,18 +73,3 @@ const ClosePopupLogin = function(e) {
     popupLoginCloseButton.removeEventListener('click', ClosePopupLogin);
     document.removeEventListener('keydown', CloseByKeyPopupLogin);
 }
-
-const inputEmail = document.querySelector('#email');
-const inputUsername = document.querySelector('#username');
-const usernameValidateLog = document.querySelector('.username-validate');
-const emailValidateLog = document.querySelector('.email-validate');
-
-inputEmail.addEventListener("input", function(e) {
-    if (inputEmail.validity.valid) {
-        emailValidateLog.textContent = '';
-    } else {
-        inputEmail.setCustomValidity("E-mail addres is incorrect!");
-        emailShowValidateError();
-    }
-});
-
