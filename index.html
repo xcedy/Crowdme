@@ -12,26 +12,7 @@
     <header>
         <div class="header-logo-wrapper">
             <a href="#" class="header-logo">
-                <svg id="Logo" xmlns="http://www.w3.org/2000/svg" width="209" height="36" viewBox="0 0 209 36">
-                    <defs>
-                      <style>
-                        .cls-1 {
-                          font-size: 31.2px;
-                          text-anchor: middle;
-                          fill: #6d6e70;
-                          font-family: Nunito;
-                          text-transform: uppercase;
-                        }
-                        .cls-2 { fill: #595959; }
-                        .cls-3 { fill: #8fc63d; }
-                      </style>
-                    </defs>
-                    <text id="Crowdme" class="cls-1" x="127" y="34"><tspan x="127">Crowd<tspan class="cls-2">me</tspan></tspan></text>
-                    <rect id="Rounded_Rectangle_13" data-name="Rounded Rectangle 13" class="cls-3" y="16" width="7" height="20" rx="3.5" ry="3.5"/>
-                    <rect id="Rounded_Rectangle_13_copy" data-name="Rounded Rectangle 13 copy" class="cls-3" x="13" width="7" height="36" rx="3.5" ry="3.5"/>
-                    <circle class="cls-3" cx="3.5" cy="10.5" r="3.5"/>
-                    <rect id="Rounded_Rectangle_13_copy_2" data-name="Rounded Rectangle 13 copy 2" class="cls-3" x="26" y="7" width="7" height="29" rx="3.5" ry="3.5"/>
-                  </svg> 
+                <svg id="Logo" xmlns="http://www.w3.org/2000/svg" width="209" height="36"><defs><style>.cls-3{fill:#8fc63d}</style></defs><text id="Crowdme" x="127" y="34" style="font-size:31.2px;text-anchor:middle;fill:#6d6e70;font-family:Nunito;text-transform:uppercase"><tspan x="127">Crowd<tspan style="fill:#595959">me</tspan></tspan></text><rect id="Rounded_Rectangle_13" data-name="Rounded Rectangle 13" class="cls-3" y="16" width="7" height="20" rx="3.5" ry="3.5"/><rect id="Rounded_Rectangle_13_copy" data-name="Rounded Rectangle 13 copy" class="cls-3" x="13" width="7" height="36" rx="3.5" ry="3.5"/><circle class="cls-3" cx="3.5" cy="10.5" r="3.5"/><rect id="Rounded_Rectangle_13_copy_2" data-name="Rounded Rectangle 13 copy 2" class="cls-3" x="26" y="7" width="7" height="29" rx="3.5" ry="3.5"/></svg>
             </a>
         </div>
         <div class="header-nav-wrapper">
@@ -356,10 +337,10 @@
             </div>
         </div>
     </footer>
-    <div class="header-member-popup">
-        <form action="#" method="get" class="member-popup">
+    <div class="popup-wrapper header-member-popup">
+        <form action="#" method="get" class="popup-form member-popup">
             <section class="popup-fields">
-                <button class="member-popup-close-button" type="button">&times;</button>
+                <button class="popup-close-button" type="button">&times;</button>
                 <h2 class="popup-fields-header">Become a Member Form</h2>
                 <p class="popup-fields-paragraph">Required fields are followed by <abbr title="required">*</abbr>.</p>
                 <div class="popup-field-wrapper">
@@ -376,26 +357,26 @@
                     <label for="password">Password: <abbr title="required">*</abbr></label>
                     <input id="password" type="password" name="password">
                 </div>
-                <input class="member-popup-button" type="submit" value="Become a Member">
+                <input class="popup-submit-button member-popup-button" type="submit" value="Become a Member">
             </section>
         </form>
     </div>
-    <div class="user-login-popup">
-        <form action="#" method="get" class="login-popup">
+    <div class="popup-wrapper user-login-popup">
+        <form action="#" method="get" class="popup-form login-popup">
             <section class="popup-fields">
-                <button class="login-popup-close-button" type="button">&times;</button>
+                <button class="popup-close-button" type="button">&times;</button>
                 <h2 class="popup-fields-header">Login Form</h2>
                 <p class="popup-fields-paragraph">Required fields are followed by <abbr title="required">*</abbr>.</p>
                 <div class="popup-field-wrapper">
-                    <label for="autorization-email">Email: <abbr title="required">*</abbr></label>
-                    <input id="autorization-email" type="email" name="email">
+                    <label for="authorization-email">Email: <abbr title="required">*</abbr></label>
+                    <input id="authorization-email" type="email" name="email">
                     <span class="email-validate input-validate"></span>
                 </div>
                 <div class="popup-field-wrapper">
-                    <label for="autorization-password">Password: <abbr title="required">*</abbr></label>
-                    <input id="autorization-password" type="password" name="password">
+                    <label for="authorization-password">Password: <abbr title="required">*</abbr></label>
+                    <input id="authorization-password" type="password" name="password">
                 </div>
-                <input class="login-popup-button" type="submit" value="Login">
+                <input class="popup-submit-button login-popup-button" type="submit" value="Login">
             </section>
         </form>
     </div>
@@ -404,6 +385,7 @@
         AOS.init();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
     <script src="script/main.js"></script>
 </body>
 </html>

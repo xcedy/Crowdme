@@ -11,8 +11,6 @@ new Swiper('.main-slider', {
     loop: true
 });
 
-AOS.init();
-
 AOS.init({
     disable: false,
     startEvent: 'DOMContentLoaded',
@@ -32,70 +30,110 @@ AOS.init({
     anchorPlacement: 'top-bottom',
 });
 
+const popupWrappers = document.querySelectorAll('.popup-wrapper');
+
 const popupBecomeAMembersOpenButtons = document.querySelectorAll('.popup-Become-A-Member-open');
 const popupBecomeAMembers = document.querySelector('.header-member-popup');
-const popupBecomeAMembersCloseButton = popupBecomeAMembers.querySelector('.member-popup-close-button');
+const popupBecomeAMembersCloseButton = popupBecomeAMembers.querySelector('.popup-close-button');
 
-
-document.addEventListener('click', outModalClick);
-
-for (let i = 0; i < popupBecomeAMembersOpenButtons.length; i++) {
-        popupBecomeAMembersOpenButtons[i].addEventListener('click', function(e) {
-        e.preventDefault();
-        popupBecomeAMembers.classList.add('popup-enabled');
-        
-        document.addEventListener('keydown', CloseByKeyPopupBecomeAMember);
-        popupBecomeAMembersCloseButton.addEventListener('click', ClosePopupBecomeAMember);
-    });
+const popupBecomeAMemberAddEventListeners = function(e) {
+    document.addEventListener('click', onDocumentClick);
+    document.addEventListener('keydown', onPopupBecomeAMemberKeydown);
+    popupBecomeAMembersCloseButton.addEventListener('click', onPopupBecomeAMemberCloseButtonClick);
 }
 
-const CloseByKeyPopupBecomeAMember = function(e) {
+const popupBecomeAMemberClassAdd = function(e) {
+    popupBecomeAMembers.classList.add('popup-enabled');
+}
+
+popupBecomeAMembersOpenButtons.forEach((item) => {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+        popupBecomeAMemberClassAdd();
+        popupBecomeAMemberAddEventListeners();
+    })
+});
+
+const popupBecomeAMemberClassRemove = function(e) {
+    popupBecomeAMembers.classList.remove('popup-enabled');
+}
+
+const popupBecomeAMemberRemoveEventListeners = function(e) {
+    popupBecomeAMembersCloseButton.removeEventListener('click', onPopupBecomeAMemberCloseButtonClick);
+    document.removeEventListener('keydown', onPopupBecomeAMemberKeydown);
+    document.addEventListener('click', onDocumentClick);
+}
+
+const closePopupBecomeAMember = function(e) {
+    popupBecomeAMemberClassRemove();
+    popupBecomeAMemberRemoveEventListeners();
+}
+
+const onPopupBecomeAMemberKeydown = function(e) {
     if (e.key === 'Escape') {
-        popupBecomeAMembers.classList.remove('popup-enabled');
+        e.preventDefault();
+        closePopupBecomeAMember();
     }
 }
 
-const ClosePopupBecomeAMember = function(e) {
-    popupBecomeAMembers.classList.remove('popup-enabled');
-
-    popupBecomeAMembersCloseButton.removeEventListener('click', ClosePopupBecomeAMember);
-    document.removeEventListener('keydown', CloseByKeyPopupBecomeAMember);
+const onPopupBecomeAMemberCloseButtonClick = function(e) {
+    closePopupBecomeAMember();
 }
 
 const popupLoginOpenButtons = document.querySelectorAll('.popup-login-open');
 const popupLogin = document.querySelector('.user-login-popup');
-const popupLoginCloseButton = document.querySelector('.login-popup-close-button');
+const popupLoginCloseButton = popupLogin.querySelector('.popup-close-button');
 
-for (let i = 0; i < popupLoginOpenButtons.length; i++) {
-    popupLoginOpenButtons[i].addEventListener('click', function(e) {
-        e.preventDefault();
-        popupLogin.classList.add('popup-enabled');
-
-        document.addEventListener('keydown', CloseByKeyPopupLogin);
-        popupLoginCloseButton.addEventListener('click', ClosePopupLogin);
-    });
+const popupLoginClassRemove = function(e) {
+    popupLogin.classList.remove('popup-enabled');
 }
 
-function outModalClick(e) {
+const popupLoginRemoveEventListeners = function(e) {
+    popupLoginCloseButton.removeEventListener('click', onPopupLoginCloseButtonClick);
+    document.removeEventListener('keydown', onPopupLoginKeydown);
+    document.removeEventListener('click', onDocumentClick);
+}
+
+const closePopupLogin = function(e) {
+    popupLoginClassRemove();
+    popupLoginRemoveEventListeners();
+}
+
+const onPopupLoginKeydown = function(e) {
+    if (e.key === 'Escape') {
+        e.preventDefault();
+        closePopupLogin();
+    }
+}
+
+const onPopupLoginCloseButtonClick = function(e) {
+    closePopupLogin();
+}
+const popupLoginClassAdd = function(e) {
+    popupLogin.classList.add('popup-enabled');
+}
+
+const popupLoginAddEventListeners = function(e) {
+    document.addEventListener('click', onDocumentClick);
+    document.addEventListener('keydown', onPopupLoginKeydown);
+    popupLoginCloseButton.addEventListener('click', onPopupLoginCloseButtonClick);
+}
+
+popupLoginOpenButtons.forEach(item => {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+        popupLoginClassAdd();
+        popupLoginAddEventListeners();        
+    })
+}) 
+
+function onDocumentClick(e) {
     if (e.target === popupBecomeAMembers) {
-        ClosePopupBecomeAMember();
+        onPopupBecomeAMemberCloseButtonClick();
     }
     else if (e.target === popupLogin) {
-        ClosePopupLogin();
+        onPopupLoginCloseButtonClick();
     }
-}
-
-const CloseByKeyPopupLogin = function(e) {
-    if (e.key === 'Escape') {
-        popupLogin.classList.remove('popup-enabled');
-    }
-}
-
-const ClosePopupLogin = function(e) {
-    popupLogin.classList.remove('popup-enabled');
-
-    popupLoginCloseButton.removeEventListener('click', ClosePopupLogin);
-    document.removeEventListener('keydown', CloseByKeyPopupLogin);
 }
 
 const menuItems = document.querySelectorAll('.main-menu-item');
@@ -123,3 +161,45 @@ const switchTab = (e) => {
 menuItems.forEach(item => {
     item.addEventListener('click', switchTab);
 });
+
+const cleaveEmail = new Cleave('#authorization-email', {
+    email: true
+});
+
+const form = document.querySelector('.login-popup');
+const emailField = form.querySelector('#authorization-email');
+const passwordField = form.querySelector('#authorization-password');
+
+
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const isValid = true;
+
+    if (!emailField.value) {
+        isValid = false;
+        showErrorMessage(emailField, 'Email is required.');
+    } else {
+        clearErrorMessage(emailField);
+    }
+    
+    if (!passwordField.value) {
+        isValid = false;
+        showErrorMessage(passwordField, 'Password is required.');
+    } else {
+        clearErrorMessage(passwordField);
+    }
+
+    if (isValid) {
+        form.submit();
+    }
+});
+
+function showErrorMessage(field, message) {
+    const errorMessage = field.parentNode.querySelector('.input-validate');
+    errorMessage.textContent = message;
+}
+
+function clearErrorMessage(field) {
+    const errorMessage = field.parentNode.querySelector('.input-validate');
+    errorMessage.textContent = '';
+}
